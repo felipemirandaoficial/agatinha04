@@ -14,11 +14,11 @@ $frases = [
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Memory Love</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/signo.css" rel="stylesheet">
+<link href="../css/signo.css" rel="stylesheet">
 <style>
 body { background: #000; color: #fff; text-align: center; overflow-x: hidden; }
 .fullscreen { position: fixed; top:0;left:0;right:0;bottom:0; background:#000; display:flex; justify-content:center; align-items:center; z-index:9999; }
-.carousel-container { margin: 0 auto; width: 99%; }
+.carousel-container { margin: 0 auto; width: 99%; display:none; } /* escondido até iniciar */
 @media(min-width:768px){ .carousel-container{ width:80%; } }
 .carousel-item img{ height:60vh; object-fit:cover; border-radius:15px; }
 .carousel-caption{ background: rgba(0,0,0,0.6); padding:10px 20px; border-radius:10px; font-size:1.3rem; }
@@ -63,17 +63,17 @@ body { background: #000; color: #fff; text-align: center; overflow-x: hidden; }
 <!-- Player de música -->
 <div class="container mt-3">
   <audio id="bgMusic" controls>
-    <source src="sound/background.mp3" type="audio/mpeg">
+    <source src="../sound/background.mp3" type="audio/mpeg">
     Seu navegador não suporta áudio.
   </audio>
 </div>
 
 <!-- Carrossel -->
-<div id="photoCarousel" class="carousel slide carousel-container" data-bs-ride="carousel" data-bs-interval="6000">
+<div id="photoCarousel" class="carousel slide carousel-container" data-bs-interval="8000">
   <div class="carousel-inner">
     <?php for($i=1;$i<=5;$i++): ?>
       <div class="carousel-item <?= $i==1?'active':'' ?>">
-        <img src="img/0<?= $i ?>.jpg" alt="foto <?= $i ?>">
+        <img src="../img/0<?= $i ?>.jpg" alt="foto <?= $i ?>">
         <div class="carousel-caption d-none d-md-block">
           <p><?= $frases[$i-1] ?></p>
         </div>
@@ -83,7 +83,7 @@ body { background: #000; color: #fff; text-align: center; overflow-x: hidden; }
 </div>
 
 <!-- Signo Section -->
-<div id="signoSection" class="signo-section">
+<div id="signoSection" class="signo-section" style="display:none;">
   <h2 class="signo-title">♈ Áries + Áries ♈</h2>
   <p class="signo-text">Duas almas intensas, cheias de paixão e energia. 💥</p>
   <p class="signo-text">Quando se unem, o fogo queima mais forte 🔥</p>
@@ -103,22 +103,31 @@ body { background: #000; color: #fff; text-align: center; overflow-x: hidden; }
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 const music = document.getElementById("bgMusic");
-const carousel = document.getElementById("photoCarousel");
+const carouselEl = document.getElementById("photoCarousel");
 const signoSection = document.getElementById("signoSection");
 const finalMsg = document.getElementById("finalMsg");
+
+let carousel; // variável do carousel
 
 function startExperience(){
   document.getElementById("startScreen").style.display="none";
   music.play();
+
+  // mostra e inicia o carrossel
+  carouselEl.style.display="block";
+  carousel = new bootstrap.Carousel(carouselEl, {
+    interval: 8000,
+    ride: false
+  });
 }
 
 // Quando terminar carrossel → mostra signo
-carousel.addEventListener("slid.bs.carousel",function(e){
-  let activeIndex=e.to;
-  let totalSlides=carousel.querySelectorAll(".carousel-item").length;
-  if(activeIndex===totalSlides-1){
+carouselEl.addEventListener("slid.bs.carousel", function(e){
+  let activeIndex = e.to;
+  let totalSlides = carouselEl.querySelectorAll(".carousel-item").length;
+  if(activeIndex === totalSlides-1){
     setTimeout(()=>{
-      carousel.style.display="none";
+      carouselEl.style.display="none";
       signoSection.style.display="block";
 
       // calcula tempo total do typewriter (aprox. 45s)

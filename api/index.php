@@ -74,7 +74,7 @@ body { background: #000; color: #fff; text-align: center; overflow-x: hidden; }
     <?php for($i=1;$i<=5;$i++): ?>
       <div class="carousel-item <?= $i==1?'active':'' ?>">
         <img src="../img/0<?= $i ?>.jpg" alt="foto <?= $i ?>">
-        <div class="carousel-caption d-none d-md-block">
+        <div class="carousel-caption">
           <p><?= $frases[$i-1] ?></p>
         </div>
       </div>

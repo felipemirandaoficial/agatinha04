@@ -117,7 +117,7 @@ function startExperience(){
   carouselEl.style.display="block";
   carousel = new bootstrap.Carousel(carouselEl, {
     interval: 8000,
-    ride: false
+    ride: 'carousel' // aqui ele vai começar a passar automaticamente
   });
 }
 
@@ -142,3 +142,4 @@ carouselEl.addEventListener("slid.bs.carousel", function(e){
 </script>
 </body>
 </html>
+

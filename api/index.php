@@ -87,7 +87,6 @@ body { background: #000; color: #fff; text-align: center; overflow-x: hidden; }
   <h2 class="signo-title">♈ Áries + Áries ♈</h2>
   <p class="signo-text">Duas almas intensas, cheias de paixão e energia. 💥</p>
   <p class="signo-text">A vida juntos nunca é monótona, cada dia é uma aventura 🚀</p>
-  <p class="signo-text">Dois corações que não conhecem limites, que amam sem medo 💓</p>
   <p class="signo-text">Por vezes teimosos, mas sempre leais, sempre sinceros ✨</p>
   <p class="signo-text">E esse amor… é a chama que jamais se apaga ❤️‍🔥</p>
 </div>
@@ -111,7 +110,7 @@ function startExperience(){
   // mostra e inicia o carrossel
   carouselEl.style.display="block";
   carousel = new bootstrap.Carousel(carouselEl, {
-    interval: 8000,
+    interval: 10000,
     ride: 'carousel' // aqui ele vai começar a passar automaticamente
   });
 }
@@ -129,9 +128,9 @@ carouselEl.addEventListener("slid.bs.carousel", function(e){
       setTimeout(()=>{
         signoSection.style.display="none";
         finalMsg.style.display="block";
-      },15000);
+      },20000);
 
-    },5000);
+    },8000);
   }
 });
 </script>

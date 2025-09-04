@@ -87,13 +87,10 @@ body { background: #000; color: #fff; text-align: center; overflow-x: hidden; }
   <h2 class="signo-title">♈ Áries + Áries ♈</h2>
   <p class="signo-text">Duas almas intensas, cheias de paixão e energia. 💥</p>
   <p class="signo-text">Quando se unem, o fogo queima mais forte 🔥</p>
-  <p class="signo-text">É um encontro de coragem, desejo e impulsos verdadeiros ⚡</p>
   <p class="signo-text">A vida juntos nunca é monótona, cada dia é uma aventura 🚀</p>
   <p class="signo-text">Dois corações que não conhecem limites, que amam sem medo 💓</p>
   <p class="signo-text">Por vezes teimosos, mas sempre leais, sempre sinceros ✨</p>
-  <p class="signo-text">Áries com Áries é intensidade, é faísca, é fogo eterno 🔥</p>
   <p class="signo-text">Uma relação de cumplicidade, paixão e crescimento mútuo 🌹</p>
-  <p class="signo-text">E no meio do caos, descobrem que nasceram para se encontrar 🌌</p>
   <p class="signo-text">E esse amor… é a chama que jamais se apaga ❤️‍🔥</p>
 </div>
 
@@ -134,12 +131,11 @@ carouselEl.addEventListener("slid.bs.carousel", function(e){
       setTimeout(()=>{
         signoSection.style.display="none";
         finalMsg.style.display="block";
-      },45000);
+      },35000);
 
-    },1000);
+    },5000);
   }
 });
 </script>
 </body>
 </html>
-

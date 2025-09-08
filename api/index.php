@@ -4,7 +4,12 @@ $frases = [
     "Nosso amor cresce a cada dia 🌹",
     "Com você, a vida é mais leve 🌟",
     "Meu coração bate no ritmo do seu 💓",
-    "Minha felicidade tem nome: Você 😘"
+    "Minha felicidade tem nome: Você 😘",
+    "Você é meu sonho mais bonito ✨",
+    "Ao seu lado, tudo faz sentido 💕",
+    "Seu sorriso é minha maior alegria 😍",
+    "Amar você é meu destino 💫",
+    "Você é meu lar, onde quer que esteja 🏡❤️"
 ];
 ?>
 <!DOCTYPE html>
@@ -71,7 +76,7 @@ body { background: #000; color: #fff; text-align: center; overflow-x: hidden; }
 <!-- Carrossel -->
 <div id="photoCarousel" class="carousel slide carousel-container" data-bs-interval="8000">
   <div class="carousel-inner">
-    <?php for($i=1;$i<=5;$i++): ?>
+    <?php for($i=1;$i<=10;$i++): ?>
       <div class="carousel-item <?= $i==1?'active':'' ?>">
         <img src="../img/0<?= $i ?>.jpg" alt="foto <?= $i ?>">
         <div class="carousel-caption">
